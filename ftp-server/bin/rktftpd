@@ -1,0 +1,8 @@
+#!/bin/sh
+# Running the RktFTPd in script mode.
+
+if [ -n "$RKTFTPD_PKGDIR" ]; then
+    cd "$RKTFTPD_PKGDIR"
+fi
+
+exec racket -N "$0" '-I' 'scheme/init' -qe- '(begin (require (file "rktftpd.rkt")) (serve/wait #:read-cmd-line? #t #:script-mode? #t))' "$@"

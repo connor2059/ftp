@@ -1,0 +1,8 @@
+#!/bin/sh
+# Running the RktFTPd Package Builder.
+
+if [ -n "$RKTFTPD_PKGDIR" ]; then
+    cd "$RKTFTPD_PKGDIR"
+fi
+
+exec racket -N "$0" '-I' 'scheme/init' -qe- '(begin (require (file "package-builder.rkt")) (build-package #:read-cmd-line? #t))' "$@"

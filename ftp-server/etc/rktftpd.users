@@ -1,0 +1,23 @@
+(ftp-users
+ (user "root"
+       [real-user         "root"]
+       [anonymous?        #f]
+       [hide-ids?         #f]
+       [hide-dotobjects?  #f]
+       [mfmt-enable?      #t]
+       [mff-enable?       #t]
+       [site-enable?      #t]
+       [permissions       (allow all)] ; equal lracmfd
+       [local-root-dir    "/"])
+ (user "user"
+       [real-user    "misha"]
+       [anonymous?   #f]
+       [permissions  (allow all)])
+ ;(user "ftp"
+ ;      [real-user      "ftp"])
+ (user "anonymous"
+       [real-user "misha"])
+ (user "nopriv"
+       [real-user  "misha"]
+       [password   "$1$$WhdhozMUMvT/NnSYYG6h90"] ;; password: 'misha'
+       [anonymous? #f]))
